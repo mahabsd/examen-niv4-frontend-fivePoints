@@ -9,30 +9,30 @@ export class GuardserviceService  {
 
   constructor() { }
 
-  login(user) {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-   /// const loggeduser = JSON.parse(localStorage.getItem("loggeduser")) || [];
+  // login(user) {
+  //   const users = JSON.parse(localStorage.getItem("users")) || [];
+  //  /// const loggeduser = JSON.parse(localStorage.getItem("loggeduser")) || [];
 
-    const test = users.find(use => use.email === user.email && use.password === user.password);
-    if (test !== undefined) {
-      localStorage.setItem('token', 'JWT');
-      this.isLoginSubject.next(true);
-      return true;
-    } else {
-      return false;
-    }
-  }
+  //   const test = users.find(use => use.email === user.email && use.password === user.password);
+  //   if (test !== undefined) {
+  //     localStorage.setItem('token', 'JWT');
+  //     this.isLoginSubject.next(true);
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   logout(): void {
     localStorage.removeItem('token');
     this.isLoginSubject.next(false);
   }
 
-  register(user) {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    users.push(user)
-    localStorage.setItem('users', JSON.stringify(users));
-  }
+  // register(user) {
+  //   const users = JSON.parse(localStorage.getItem("users")) || [];
+  //   users.push(user)
+  //   localStorage.setItem('users', JSON.stringify(users));
+  // }
 
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');

@@ -8,9 +8,14 @@
                 {{registForm.value | json}}
               </div> -->
           <mat-form-field floatLabel="auto">
-            <mat-label>nom</mat-label>
-            <input matInput required name="userName" formControlName="userName" [class.is-invalid]="registForm.get('userName').invalid && registForm.get('userName').touched ">
-            <mat-error [class.d-none]="registForm.get('userName').valid || registForm.get('userName').untouched"  >This field is required</mat-error>
+            <mat-label>first Name</mat-label>
+            <input matInput required name="firstName" formControlName="firstName" [class.is-invalid]="registForm.get('firstName').invalid && registForm.get('firstName').touched ">
+            <mat-error [class.d-none]="registForm.get('firstName').valid || registForm.get('firstName').untouched"  >This field is required</mat-error>
+          </mat-form-field>
+          <mat-form-field floatLabel="auto">
+            <mat-label>last Name</mat-label>
+            <input matInput required name="lastName" formControlName="lastName" [class.is-invalid]="registForm.get('lastName').invalid && registForm.get('lastName').touched ">
+            <mat-error [class.d-none]="registForm.get('lastName').valid || registForm.get('lastName').untouched"  >This field is required</mat-error>
           </mat-form-field>
           <mat-form-field floatLabel="auto">
             <mat-label>email</mat-label>

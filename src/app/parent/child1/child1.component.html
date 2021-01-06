@@ -3,14 +3,6 @@
       <div class="col-4"></div>
       <div class="col-2">
         <form [formGroup]=registrationForm>
-            <!-- <div>
-                {{registrationForm.value | json}}
-              </div> -->
-          <!-- <mat-form-field floatLabel="auto">
-            <mat-label>nom</mat-label>
-            <input matInput required name="userName" formControlName="userName" [class.is-invalid]="registrationForm.get('userName').invalid && registrationForm.get('userName').touched ">
-            <mat-error [class.d-none]="registrationForm.get('userName').valid || registrationForm.get('userName').untouched"  >This field is required</mat-error>
-          </mat-form-field> -->
           <mat-form-field floatLabel="auto">
             <mat-label>email</mat-label>
             <input matInput required formControlName="email" [class.is-invalid]="registrationForm.get('email').invalid && registrationForm.get('email').touched "  > 
@@ -25,51 +17,6 @@
                     un majuscule, un entier et un caract�re sp�cial</mat-error> -->
             <mat-hint> min 5 characters</mat-hint>
           </mat-form-field>
-      
-          <!-- <mat-form-field floatLabel="auto">
-            <mat-label>confirmez mot de passe</mat-label>
-            <input matInput required formControlName="confirmPassword" [class.is-invalid]="registrationForm.errors?.misMatch">
-            <mat-error [class.d-none]="registrationForm.get('confirmPassword').valid || registrationForm.get('confirmPassword').untouched">This field is required</mat-error>
-          </mat-form-field>
-          <small  *ngIf='registrationForm.errors?.misMatch 'class="text-danger" > password mismatch</small>
-       
- -->
-
-          <!-- <h3>Skills</h3>
-          <div formArrayName="skills">
-           <mat-form-field class="example-chip-list">
-             <mat-chip-list #chipList aria-label="skill selection">
-               <mat-chip *ngFor="let skill of registrationForm.get('skills').value; let i = index"
-                [selectable]="selectable"
-                 [removable]="removable"
-                 (removed)="remove(i)">
-                 {{skill}}
-                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-               </mat-chip>
-               <input placeholder="New skill..." #skillInput [formControl]="skillCtrl" [matAutocomplete]="auto"
-                 [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                 (matChipInputTokenEnd)="add($event)">
-             </mat-chip-list>
-             <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-               <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill">
-                 {{skill}}
-               </mat-option>
-             </mat-autocomplete>
-           </mat-form-field>
-          </div> -->
-            <!-- <h3>Professional Experience</h3>
-            <div [formGroup]=registrationForm>
-              <button mat-mini-fab color="accent" (click)="addProfessionalExperience()"
-                aria-label="Example icon button with a plus one icon">
-                <mat-icon>control_point</mat-icon>
-              </button>
-              <mat-form-field formArrayName="ProfessionalExperience" *ngFor="let exp of registrationForm.get('ProfessionalExperience').value; let i = index">
-                <mat-label>additional Professional Experience</mat-label> 
-    
-                <input matInput [formControlName]="index ">
-              </mat-form-field>
-            </div>-->
-
                <button mat-raised-button color="accent" type="submit" (click) = "onSubmit()" > submit form</button> 
         </form>
       </div>
