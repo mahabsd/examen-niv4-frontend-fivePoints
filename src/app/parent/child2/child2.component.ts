@@ -32,7 +32,6 @@ export class Child2Component implements OnInit {
       this.sujets = res
     // console.log("hello " + JSON.stringify(res));
     });
-    this.disableSondage()
   }
   addSujet() {
     this.new = true
@@ -43,60 +42,17 @@ export class Child2Component implements OnInit {
       console.log("subject added!" + res);
 
     });
-
-   // window.location.reload();
+    this.sujet=  new FormGroup({
+      title: new FormControl('',),
+      description: new FormControl(''),
+     // vote: new FormControl(''),
+      userId: new FormControl(''),
+       voteTrue: new FormControl(''),
+       voteFalse: new FormControl(''),
+    })
   }
 
   user = JSON.parse(localStorage.getItem('loggeduser'));
 
-  // toggle(event, i) {
-  //   console.log(event.target.checked, i);
-  //   this.sujet.patchValue({
-  //     vote: event.target.checked,
-  //     userId: this.user._id
-  //   })
-  //   this.myService.updateSujet(i, JSON.stringify(this.sujet)).subscribe((res) => {
-  //     console.log("subject added!");
-  //   });
-  // }
-  nbVote = 0;
-  pour
-  pourcentage() {
-    if (this.sujets.length == 0) {
-      return 0
-    } else {
-      this.sujets.map(sujet => {
-        if (sujet.userId == this.user._id) {
-          if (sujet.vote == true) {
-            this.nbVote += 1
-          }
-        }
-      })
-      console.log(this.nbVote + 'length' + this.sujets.length);
-      this.pour = (this.nbVote * 100) / this.sujets.length
-      if (this.pour > this.sujets.length) {
-        this.pour = 100
-      }
-    }
-    // this.sujets.length
-  }
-  isDisabled = false;
-  disableSondage() {
-    var time = new Date();
-    var hours = time.getHours();
-    if (this.nbVote > 4) {
-      this.isDisabled = true;
-    }
-    if (hours > 23) {
-      //your button disabling logic will come here
-      this.isDisabled = false;
 
-    }
-  }
-  // updateSujet(i, data){
-  //   this.myService.updateSujet(i, data) 
-  // }
-  // delete(i){
-  //   this.myService.deleteSujet(i) 
-  //   }
 }

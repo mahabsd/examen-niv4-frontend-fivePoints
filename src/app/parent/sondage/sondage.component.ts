@@ -57,7 +57,6 @@ export class SondageComponent implements OnInit {
     }
   }
 
-
   pourcentage() {
     this.userServices.getAllUsers().subscribe((res: any) =>{ this.usernum = res
     
