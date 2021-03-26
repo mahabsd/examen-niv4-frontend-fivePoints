@@ -9,7 +9,7 @@ export class FormService {
 
   getUsers(){ return this.users;}
 
-  usersUrl: string = "/api/";
+  usersUrl: string = "http://localhost:3000/";
 
   constructor(private http: HttpClient) { }
   addUser(data) {
@@ -23,10 +23,10 @@ export class FormService {
     return this.http.get(this.usersUrl +"users/user/"+ id );
   }
   updateUser(id, data) {
-    return this.http.put(this.usersUrl +"users/user/update"+ id , data);
+    return this.http.put(this.usersUrl +"users/user/update/"+ id , data);
   }
   getAllUsers() {
-    return this.http.get(this.usersUrl +"/users/getAllusers" );
+    return this.http.get(this.usersUrl +"users/getAllusers" );
   }
   addSujet(idUser, idSujet, data){
     return this.http.put(this.usersUrl + "users/deleteuserTask/"+idUser + idSujet, data);

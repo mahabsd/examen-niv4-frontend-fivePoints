@@ -1,0 +1,25 @@
+<div class="col-md-5 mr-auto ml-auto">
+    <form formGroup="sujet">
+        <p>{{sujet.title}} </p>
+        <p>{{sujet.description}}</p>
+        <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="true" name="radio-stacked" [disabled]="!isDisabled"
+                required (change)="toggle($event)" formControlName="vote">
+            <label class="custom-control-label" for="true">oui</label>
+        </div>
+        <div class="custom-control custom-radio mb-3">
+            <input type="radio" class="custom-control-input" id="false" name="radio-stacked" [disabled]="!isDisabled"
+                required (change)="toggle($event)" formControlName="vote">
+            <label class="custom-control-label" for="false">non</label>
+            <div class="invalid-feedback">invalid feedback text</div>
+        </div>
+    </form>
+    <button (click)="submit(sujet._id)"  [disabled]="!isDisabled"> submit </button>
+
+</div>
+<div>
+    <button mat-raised-button color= "danger" (click) = "pourcentage()"> pourcentage de vote</button>
+    <h2> % {{pourcentagesOui}}</h2>
+    <h2> % {{pourcentagesNon}}</h2>
+  
+</div>

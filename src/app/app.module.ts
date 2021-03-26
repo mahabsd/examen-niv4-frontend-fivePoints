@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +9,11 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { ParentComponent } from './parent/parent.component';
 import { NavBarComponent } from './parent/nav-bar/nav-bar/nav-bar.component';
 import { SignupComponent } from './parent/signup/signup.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { ListSondComponent } from './parent/list-sond/list-sond.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +21,7 @@ import {HttpClientModule} from '@angular/common/http'
     NavBarComponent,
     routingComponents,
     SignupComponent,
+    ListSondComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -26,8 +30,8 @@ import {HttpClientModule} from '@angular/common/http'
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    CommonModule
   ],
   providers: [ ],
   bootstrap: [AppComponent],

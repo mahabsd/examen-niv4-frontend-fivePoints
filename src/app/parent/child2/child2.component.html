@@ -1,38 +1,7 @@
 <div class="row-md-6">
   <div class="col-md-4">
-
-
-
-    <table class="table table-Borderless">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">title</th>
-          <th scope="col">description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr  *ngFor="let sujet of sujets ; let i = index ">
-          <th scope="row">{{i}}</th>
-          <td>{{sujet.title}}</td>
-          <td>{{sujet.description}}</td>
-          <div class="custom-control custom-radio">
-            <input type="radio" class="custom-control-input" id="{{i}}" name="radio-stacked"  [disabled]="isDisabled"  required (change)="toggle($event, sujet._id)">
-            <label class="custom-control-label" for="{{i}}">oui</label>
-          </div>
-          <div class="custom-control custom-radio mb-3">
-            <input type="radio" class="custom-control-input" id="{{i}}+a" name="radio-stacked"  [disabled]="isDisabled" required (change)="toggle($event,  sujet._id)">
-            <label class="custom-control-label" for="{{i}}+a">non</label>
-            <div class="invalid-feedback">invalid feedback text</div>
-          </div>
-          <!-- <button mat-raised-button color= "primary" (click) = "addSujet()"> add subject</button> -->
-        </tr>
     
-      </tbody>
-    </table>
-    <button mat-raised-button color= "primary" (click) = "addSujet()"> add subject</button>
-    
-    <div *ngIf = new>
+    <div >
       <form [formGroup]=sujet>
         <mat-form-field floatLabel="auto">
           <mat-label>title</mat-label>
@@ -44,11 +13,7 @@
         </mat-form-field>
              <button mat-raised-button color="accent" type="submit" (click) = "onSubmit()" > submit form</button> 
       </form>    </div>
-    <div>
-      <button mat-raised-button color= "danger" (click) = "pourcentage()"> pourcentage de vote</button>
-      <p [(ngModel)]="pour" > % {{pour}}</p>
-    
-    </div>
+
     
   </div>
 

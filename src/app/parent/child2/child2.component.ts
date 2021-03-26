@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
-import { valueOf } from 'events';
 import { throwIfEmpty } from 'rxjs/operators';
 import { FormService } from 'src/app/service/form.service';
 import { SujetService } from 'src/app/service/sujet.service';
@@ -20,8 +19,10 @@ export class Child2Component implements OnInit {
   sujet = new FormGroup({
     title: new FormControl('',),
     description: new FormControl(''),
-    vote: new FormControl(''),
+   // vote: new FormControl(''),
     userId: new FormControl(''),
+     voteTrue: new FormControl(''),
+     voteFalse: new FormControl(''),
   })
 
   ngOnInit(): void {
@@ -29,7 +30,7 @@ export class Child2Component implements OnInit {
     this.sujets = this.myService.getAllSujets().subscribe((res) => {
       // console.log("Logged in!" + JSON.stringify(res));
       this.sujets = res
-      console.log("hello " + JSON.stringify(res));
+    // console.log("hello " + JSON.stringify(res));
     });
     this.disableSondage()
   }
@@ -43,21 +44,21 @@ export class Child2Component implements OnInit {
 
     });
 
-    window.location.reload();
+   // window.location.reload();
   }
 
   user = JSON.parse(localStorage.getItem('loggeduser'));
 
-  toggle(event, i) {
-    console.log(event.target.checked, i);
-    this.sujet.patchValue({
-      vote: event.target.checked,
-      userId: this.user._id
-    })
-    this.myService.updateSujet(i, JSON.stringify(this.sujet)).subscribe((res) => {
-      console.log("subject added!");
-    });
-  }
+  // toggle(event, i) {
+  //   console.log(event.target.checked, i);
+  //   this.sujet.patchValue({
+  //     vote: event.target.checked,
+  //     userId: this.user._id
+  //   })
+  //   this.myService.updateSujet(i, JSON.stringify(this.sujet)).subscribe((res) => {
+  //     console.log("subject added!");
+  //   });
+  // }
   nbVote = 0;
   pour
   pourcentage() {
@@ -77,8 +78,6 @@ export class Child2Component implements OnInit {
         this.pour = 100
       }
     }
-
-
     // this.sujets.length
   }
   isDisabled = false;

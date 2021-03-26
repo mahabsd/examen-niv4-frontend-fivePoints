@@ -9,7 +9,7 @@ export class SujetService {
 
   getSujets(){ return this.sujets;}
 
-  sujetsUrl: string = "/api/";
+  sujetsUrl: string = "http://localhost:3000/";
 
   constructor(private http: HttpClient) { }
   addSujet(data) {
@@ -19,10 +19,10 @@ export class SujetService {
     return this.http.get(this.sujetsUrl +"sujets/sujet/"+ id );
   }
   updateSujet(id, data) {
-    return this.http.post(this.sujetsUrl +"sujets/sujet/update"+ id , data);
+    return this.http.put(this.sujetsUrl +"sujets/sujet/update/"+ id , data);
   }
   getAllSujets() {
-    return this.http.get(this.sujetsUrl +"/sujets/getAllsujets" );
+    return this.http.get(this.sujetsUrl +"sujets/getAllsujets" );
   }
   addUserId(idUser, idSujet){
     return this.http.get(this.sujetsUrl + "users/affectusersujet/"+idUser +"/"+ idSujet);

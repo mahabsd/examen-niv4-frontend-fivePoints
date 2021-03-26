@@ -4,6 +4,10 @@ import { Child1Component } from './parent/child1/child1.component';
 import { Child2Component } from './parent/child2/child2.component';
 import { SignupComponent } from './parent/signup/signup.component';
 import { AuthGuardGuard } from './auth-guard.guard';
+import { SondageComponent } from 'src/app/parent/sondage/sondage.component';
+import { ListSondComponent } from './parent/list-sond/list-sond.component';
+
+
 const routes: Routes = [
   {
     path: 'Signup',
@@ -21,11 +25,19 @@ const routes: Routes = [
     canActivate: [AuthGuardGuard]
   },
   {
+    path: 'list',
+    component: ListSondComponent,
+    canActivate: [AuthGuardGuard]
+  },
+  {
     path: 'child1', redirectTo: 'child1'
   },
   {
     path: 'child1', redirectTo: 'child1'
   },
+  { path: 'list/sondage/:index', component: SondageComponent,
+  canActivate: [AuthGuardGuard] },
+
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

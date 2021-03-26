@@ -1,0 +1,5 @@
+<div class="col-md-5 mr-auto ml-auto"  *ngFor="let sujet of sujets ; let i = index ">
+    <div>
+        <a href="" class="btn btn-link btn-danger" [routerLink]="['/list/sondage', sujet._id]"  class="text-center">  <h3>{{sujet.title}}</h3> </a>
+    </div>
+</div>

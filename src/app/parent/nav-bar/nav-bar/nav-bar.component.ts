@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { GuardserviceService } from 'src/app/service/guardservice.service';
 
@@ -10,8 +11,8 @@ import { GuardserviceService } from 'src/app/service/guardservice.service';
 export class NavBarComponent implements OnInit {
 
   isLoggedIn : Observable<boolean>;
-  
-  constructor(private AuthServices: GuardserviceService) {
+   
+  constructor(private AuthServices: GuardserviceService,  private route: Router) {
     this.isLoggedIn = AuthServices.isLoggedIn();
    }
 
@@ -19,6 +20,8 @@ export class NavBarComponent implements OnInit {
   }
   logOutBar(){
     this.AuthServices.logout();
+    this.route.navigateByUrl('/child1');
+
   }
 
 }
