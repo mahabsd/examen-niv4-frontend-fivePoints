@@ -37,6 +37,7 @@ export class SondageComponent implements OnInit {
     if (this.user.voteNumber = 0) {
       this.isDisabled = false
     }
+pourcentage();
   }
 
   submit(i) {
